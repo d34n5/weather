@@ -22,7 +22,7 @@ var lib = require('bower-files')({
 var buildProduction = utilities.env.production;
 
 gulp.task('concatInterface', function() {
-  return gulp.src(['./js/frontend.js', './js/signup.js'])
+  return gulp.src(['./js/*.js'])
     .pipe(concat('allConcat.js'))
     .pipe(gulp.dest('./tmp'));
 });
@@ -86,7 +86,7 @@ gulp.task('serve', function() {
   gulp.watch(['*.html'], ['htmlBuild']);
 });
 
-gulp.task('jsBuild', ['jsBrowswerify', 'jshint'], function(){
+gulp.task('jsBuild', ['jsBrowserify', 'jshint'], function(){
   browser.reload();
 });
 
